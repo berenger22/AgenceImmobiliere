@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agence Immobiliere{% endblock %}
+
+{% block monTitre %}Mon Agence Immobilière{% endblock %}
+{% block body %}
+<h2>Les derniers biens</h2>
+<div class="row flex">
+    {% for maison in maisons %}
+    <div class="card bg-light mb-3" style="max-width: 20rem;">
+        <div class="card-body">
+          <a href="{{path('afficherBien',{'id' : maison.id})}}"><h4 class="card-title">{{maison.title}}</h4></a>
+          <p class="card-text">{{maison.description}}</p>
+          <p class="card-text">{{maison.city}} ({{maison.postalCode}})</p>
+          <div class="text-primary" style="font-weight: bold; font-size:2rem;">{{maison.formattedPrice}} €</div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

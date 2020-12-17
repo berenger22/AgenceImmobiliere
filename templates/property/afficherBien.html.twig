@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agence Immobiliere{% endblock %}
+
+{% block monTitre %}{{maison.title}}{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div>
+            <h2>{{ maison.rooms}} pièces - {{maison.surface}} m2</h2>
+            <div class="text-priamry" style="font-size: 4rem; font-weight: bold">{{maison.formattedPrice}} €</div>
+            <a href="#" class="btn btn-primary">Contacter l'agence</a>
+        </div>
+    </div>
+
+    <p>{{maison.description | nl2br}}</p>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Caractéristiques</h2>
+            <table class="table table-striped">
+                <tr>
+                    <td>Surface habitable</td>
+                    <td>{{maison.surface}}</td>
+                </tr>
+                <tr>
+                    <td>Pièces</td>
+                    <td>{{maison.rooms}}</td>
+                </tr>
+                <tr>
+                    <td>Chambres</td>
+                    <td>{{maison.bedrooms}}</td>
+                </tr>
+                <tr>
+                    <td>Etage</td>
+                    <td>{{maison.floor}}</td>
+                </tr>
+                <tr>
+                    <td>Chauffage</td>
+                    <td>{{maison.heatType}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h2>Spécificités</h2>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
