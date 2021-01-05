@@ -4,14 +4,36 @@
 
 {% block monTitre %}Bien à acheter{% endblock %}
 {% block body %}
-    <div class="row">
-        {% for maison in maisons %}
-        <div class="col col-6">
-            {% include 'property/property.html.twig' %}
+
+<div class="container">
+    {{ form_start(form)}}
+    <div class="form-row align-items-end">
+        <div class="col">
+            {{ form_row(form.minSurface) }}
         </div>
-        {% endfor %}    
+        <div class="col">
+            {{ form_row(form.maxPrice) }}
+        </div>
+        <div class="col">
+            {{ form_row(form.options) }}
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <button class="btn btn-primary">Rechercher</button>
+            </div>
+        </div>
     </div>
-    <div class="pagination">
-            {{ knp_pagination_render(maisons) }}
+    {{ form_end(form) }}
+</div>
+
+<div class="row">
+    {% for maison in maisons %}
+    <div class="col col-6">
+        {% include 'property/property.html.twig' %}
     </div>
+    {% endfor %}
+</div>
+<div class="pagination">
+    {{ knp_pagination_render(maisons) }}
+</div>
 {% endblock %}
