@@ -1,4 +1,11 @@
+
+{% cache 'property' ~ maison.id maison.createdAt.timestamp %}
 <div class="card m-3">
+    {% if maison.picture %}
+        <img src="{{ vich_uploader_asset(maison.picture, 'imageFile') | imagine_filter('thumb')}}" alt="card-img-top" style="width: 100%; height:auto;">
+    {% else %}
+    <img src="{{ '/images/house.jpg' | imagine_filter('thumb') }}" alt="card-img-top" style="width: 100%; height:auto;">
+    {% endif %}
     <div class="card-body">
         <h5 class="card-title">
             <a href="{{path('afficherBien',{'id' : maison.id})}}">{{ maison.title }}</a>
@@ -9,3 +16,4 @@
         </div>
     </div>
 </div>
+{% endcache %}
